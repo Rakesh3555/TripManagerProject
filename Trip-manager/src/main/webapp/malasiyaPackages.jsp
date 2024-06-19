@@ -64,7 +64,7 @@
                <h2 class="card__title" style="text-align: center;">Sutable for group of travellers</h2>
                <form action="MalaysiaPackageServlet" method="post">
                   <input type="hidden" name="action" value="groupPackage">
-                  <a href="" class="card__button" style="text-align: center;color: purple;text-decoration: none">ENQUIRE</a>
+                  <!-- <a href="" class="card__button" style="text-align: center;color: purple;text-decoration: none">ENQUIRE</a> -->
                   <input class="card__button" style="text-align: center;color: purple;text-decoration: none ; border: none ; background-color: white;" type="submit" value="ENQUIRE">
                </form>
               

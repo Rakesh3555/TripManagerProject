@@ -6,6 +6,10 @@ public class BookingPojo {
 	String toDate ;
 	int noOfAdults ;
 	int noOfChildrens ;
+	int dateDifference;
+	int totalPrice;
+	String destination;
+	int packagePriceSession;
 	public String getFromDate() {
 		return fromDate;
 	}
@@ -29,6 +33,30 @@ public class BookingPojo {
 	}
 	public void setNoOfChildrens(int noOfChildrens) {
 		this.noOfChildrens = noOfChildrens;
+	}
+	public int getDateDifference() {
+		return dateDifference;
+	}
+	public void setDateDifference(int dateDifference) {
+		this.dateDifference = dateDifference;
+	}
+	public int getTotalPrice() {
+		return totalPrice;
+	}
+	public void setTotalPrice(int totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+	public String getDestination() {
+		return destination;
+	}
+	public void setDestination(String destination) {
+		this.destination = destination;
+	}
+	public int getPackagePriceSession() {
+		return packagePriceSession;
+	}
+	public void setPackagePriceSession(int packagePriceSession) {
+		this.packagePriceSession = packagePriceSession;
 	}
 	
 }

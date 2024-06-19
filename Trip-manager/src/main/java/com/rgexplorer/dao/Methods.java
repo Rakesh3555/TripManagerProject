@@ -1,6 +1,10 @@
 package com.rgexplorer.dao;
 
-import javax.mail.internet.MimeMessage;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
+import javax.servlet.http.HttpSession;
 
 import com.rgexplorer.model.BookingPojo;
 import com.rgexplorer.model.TripManagerPojo;
@@ -21,13 +25,24 @@ public class Methods {
 		}
 		
 		
-		public void tripAmountCalci(BookingPojo bp){
+		public void tripAmountWithOFlightCalci(BookingPojo bp){
 			
-			int totalPeopleAmount = 9000 * bp.getNoOfAdults() + 5000 * bp.getNoOfChildrens();
+			int totalPeopleAmount = 10000 * bp.getNoOfAdults() + 6000 * bp.getNoOfChildrens();
+			int totalAmount = totalPeopleAmount * bp.getDateDifference();
 			
+			bp.setTotalPrice(totalAmount);
 			
+		
 			
+		}
+		
+		public int differenceDate(BookingPojo bp) {
 			
+			LocalDate from = LocalDate.parse(bp.getFromDate());
+			LocalDate to = LocalDate.parse(bp.getToDate());
+			int differenceInDays = (int) ChronoUnit.DAYS.between(from, to);
+			bp.setDateDifference(differenceInDays);
+			return differenceInDays;
 		}
 		
 	}

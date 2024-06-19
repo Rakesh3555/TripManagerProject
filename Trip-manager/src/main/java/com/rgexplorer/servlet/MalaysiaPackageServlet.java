@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.rgexplorer.model.BookingPojo;
 import com.rgexplorer.model.TripManagerPojo;
 import com.rgexplorer.util.RgDataBaseManager;
 
@@ -20,6 +21,7 @@ import com.rgexplorer.util.RgDataBaseManager;
 public class MalaysiaPackageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	TripManagerPojo tmp = new TripManagerPojo();  
+	BookingPojo bp = new BookingPojo();
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -67,10 +69,12 @@ public class MalaysiaPackageServlet extends HttpServlet {
 			}
 		}
 		else if(packageType.equals("frindspackage")) {
+			
 			try {
 				RgDataBaseManager.malasiyaTripFriendsPackage(name, mobileNumber);
 				RgDataBaseManager.bookingTitleUpdater(tmp);
 				details.setAttribute("TripType", RgDataBaseManager.bookingTitleUpdater(tmp));
+				System.out.println("Package type : " + RgDataBaseManager.bookingTitleUpdater(tmp));
 				response.sendRedirect("Booking.jsp");
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
@@ -87,6 +91,7 @@ public class MalaysiaPackageServlet extends HttpServlet {
 				RgDataBaseManager.malasiyaTripGroupPackage(name, mobileNumber);
 				RgDataBaseManager.bookingTitleUpdater(tmp);
 				details.setAttribute("TripType", RgDataBaseManager.bookingTitleUpdater(tmp));
+				System.out.println("Package type : " + RgDataBaseManager.bookingTitleUpdater(tmp));
 				response.sendRedirect("Booking.jsp");
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
